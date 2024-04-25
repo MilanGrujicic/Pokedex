@@ -25,13 +25,14 @@ class Pokedex:
         self.window.mainloop()
 
     def search_pokemon(self):
-        sprite_url = self.sprite_url = self.get_pokemon_sprite()
-        threading.Thread(target=self.getImageFromURL, args=(sprite_url, self)).start()
-        self.imagelab = Label(self.window, text="Loading image from internet ...", width=25, height=5, bg=BACKGROUND_COLOR, fg="white")
+        pokemon_info = self.sprite_url = self.get_pokemon_info()
+        threading.Thread(target=self.getImageFromURL, args=(pokemon_info[-1], self)).start()
+        self.imagelab = Label(self.window, text="Loading image from internet ...", width=25, height=5, bg="black", fg="white")
         self.imagelab.place(x=90, y=250)
         self.window.bind("<<ImageLoaded>>", self.on_image_loaded)
 
-    def get_pokemon_sprite(self):
+    def get_pokemon_info(self):
+        pokemon_info = list()
         pokemon_name = self.user_input.get(1.0, END).strip()  # Get and strip the input text
         if not pokemon_name:
             print("Please enter a Pokémon name.")
@@ -42,14 +43,19 @@ class Pokedex:
 
         if response.status_code == 200:
             data = response.json()
-            sprite = data["sprites"]["front_default"]
-            return sprite
+            pokemon_info.append(pokemon_name)
+            pokemon_info.append(data["id"])
+            type = data["types"][0]["type"]["name"]
+            type = type.title()
+            pokemon_info.append(type)
+            pokemon_info.append(data["abilities"][1]["ability"]["name"])
+            pokemon_info.append(data["sprites"]["front_default"])
+            return pokemon_info
         else:
             print(f"Error fetching Pokémon data: {response.status_code}")
             return None
 
     def getImageFromURL(self, url, controller):
-        print('hai')
         try:
             image = ImageTk.PhotoImage(file=urlopen(url))
             # notify controller that image has been downloaded
