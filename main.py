@@ -36,6 +36,7 @@ class Pokedex:
         self.window.mainloop()
 
     def search_pokemon(self):
+        '''Once the pokemon_search button is pressed, display pokemon sprite and pokemon information.'''
         pokemon_information = self.get_pokemon_information()
         threading.Thread(target=self.getImageFromURL, args=(pokemon_information[-1], self)).start()
         self.imagelab = Label(self.window, text="Loading Pokemon data ...", width=25, height=5, bg="black", fg="white")
@@ -44,6 +45,7 @@ class Pokedex:
         self.display_pokemon_information(pokemon_information)
 
     def get_pokemon_information(self):
+        '''Gets parses pokemon information from pokeapi.'''
         pokemon_information = list()
         pokemon_name = self.user_input.get(1.0, END).strip()  # Get and strip the input text
         if not pokemon_name:
@@ -66,6 +68,7 @@ class Pokedex:
             return None
 
     def getImageFromURL(self, url, controller):
+        '''Processes pokemon sprite from url provided by the pokeapi.'''
         try:
             image = ImageTk.PhotoImage(file=urlopen(url))
             # notify controller that image has been downloaded
@@ -75,9 +78,11 @@ class Pokedex:
             print(e)
 
     def on_image_loaded(self, event):
+        '''Loads pokemon sprite to GUI.'''
         self.imagelab.config(image=self.image, width=self.image.width(), height=self.image.height())
 
     def display_pokemon_information(self, list_with_pokemon_information):
+        '''Loads pokemon information provided by the pokeapi.'''
         self.id = Label(self.information_display, text="ID:", bg="black", fg="white")
         self.id.grid(column=0, row=0, pady=5, sticky="e")
 
