@@ -25,6 +25,8 @@ class Pokedex:
 
         self.pokemon_search = Button(text="Search", width=9, height=2, bg="#5fc480", highlightbackground="black", border="2", font=("Helvetica", 17, "bold"),command=self.search_pokemon).place(x=100,y=509)
 
+        self.made_with_love_by_milan = Label(text="Made with love by Milan Grujicic", bg="black", fg="white", font=("Helvetica", 10, "italic")).place(x=1,y=630)
+
         self.window.mainloop()
 
     def search_pokemon(self):
