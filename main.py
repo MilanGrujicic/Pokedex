@@ -13,7 +13,7 @@ class Pokedex:
         self.window.config(bg=BACKGROUND_COLOR)
 
         self.canvas = Canvas(width=850, height=650, bg="black")
-        pokedex_img = PhotoImage(file="Pokedex.png")
+        pokedex_img = PhotoImage(file="./images/Pokedex.png")
         self.pokedex = self.canvas.create_image(400, 325, image=pokedex_img)
         self.canvas.grid(row=0, column=0)
 
@@ -21,7 +21,13 @@ class Pokedex:
         self.user_input.place(x=480, y=235)
 
         self.information_display = Frame(self.window, bg="black", width=130, height=150)
-        self.information_display.place(x=190, y=220)
+        self.information_display.place(x=180, y=220)
+
+        self.exit_icon = PhotoImage(file="./images/exit_icon.png")
+
+        self.exit = Button(self.window, width=40, height=29, bg="#22c4ea", highlightthickness=0, image=self.exit_icon, command=self.window.destroy)
+        self.exit.image = self.exit_icon
+        self.exit.place(x=687, y=378)
 
         self.pokemon_search = Button(text="Search", width=9, height=2, bg="#5fc480", highlightbackground="black", border="2", font=("Helvetica", 17, "bold"),command=self.search_pokemon).place(x=100,y=509)
 
@@ -33,7 +39,7 @@ class Pokedex:
         pokemon_information = self.get_pokemon_information()
         threading.Thread(target=self.getImageFromURL, args=(pokemon_information[-1], self)).start()
         self.imagelab = Label(self.window, text="Loading Pokemon data ...", width=25, height=5, bg="black", fg="white")
-        self.imagelab.place(x=90, y=250)
+        self.imagelab.place(x=80, y=250)
         self.window.bind("<<ImageLoaded>>", self.on_image_loaded)
         self.display_pokemon_information(pokemon_information)
 
