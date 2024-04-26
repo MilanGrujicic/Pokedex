@@ -5,10 +5,10 @@ A Pokédex is a device which has information about pokemons.
 ## Prerequisites
 - Python 3.10.12;
 - Tkinter library;
-- PIL;
-- requests
-- threading
-- urllib.request
+- PIL library;
+- requests library;
+- threading library;
+- urllib.request library;
 
 ## Usage:
 
