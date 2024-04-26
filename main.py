@@ -23,7 +23,7 @@ class Pokedex:
         self.information_display = Frame(self.window, bg="black", width=130, height=150)
         self.information_display.place(x=190, y=220)
 
-        self.close_button = Button(text="Search", width=9, height=2, bg="#5fc480", highlightbackground="black", border="2", font=("Helvetica", 17, "bold"),command=self.search_pokemon).place(x=100,y=509)
+        self.pokemon_search = Button(text="Search", width=9, height=2, bg="#5fc480", highlightbackground="black", border="2", font=("Helvetica", 17, "bold"),command=self.search_pokemon).place(x=100,y=509)
 
         self.window.mainloop()
 
