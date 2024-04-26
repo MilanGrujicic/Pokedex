@@ -72,8 +72,6 @@ class Pokedex:
         self.imagelab.config(image=self.image, width=self.image.width(), height=self.image.height())
 
     def display_pokemon_information(self, list_with_pokemon_information):
-        print("display_pokemon_information")
-
         self.id = Label(self.information_display, text="ID:", bg="black", fg="white")
         self.id.grid(column=0, row=0, pady=5, sticky="e")
 
