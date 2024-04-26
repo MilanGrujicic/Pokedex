@@ -9,11 +9,11 @@ BACKGROUND_COLOR = "#191919"
 class Pokedex:
     def __init__(self):
         self.window = Tk()
-        self.window.title("Pokedex")
+        self.window.title("Pokédex")
         self.window.config(bg=BACKGROUND_COLOR)
 
         self.canvas = Canvas(width=850, height=650, bg="black")
-        pokedex_img = PhotoImage(file="./images/Pokedex.png")
+        pokedex_img = PhotoImage(file="./images/pokedex.png")
         self.pokedex = self.canvas.create_image(400, 325, image=pokedex_img)
         self.canvas.grid(row=0, column=0)
 
