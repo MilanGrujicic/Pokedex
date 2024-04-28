@@ -38,11 +38,14 @@ class Pokedex:
     def search_pokemon(self):
         '''Once the pokemon_search button is pressed, display pokemon sprite and pokemon information.'''
         pokemon_information = self.get_pokemon_information()
-        threading.Thread(target=self.getImageFromURL, args=(pokemon_information[-1], self)).start()
-        self.imagelab = Label(self.window, text="Loading Pokemon data ...", width=25, height=5, bg="black", fg="white")
-        self.imagelab.place(x=80, y=250)
-        self.window.bind("<<ImageLoaded>>", self.on_image_loaded)
-        self.display_pokemon_information(pokemon_information)
+        try:
+            threading.Thread(target=self.getImageFromURL, args=(pokemon_information[-1], self)).start()
+            self.imagelab = Label(self.window, text="Loading Pokemon data ...", width=25, height=5, bg="black", fg="white")
+            self.imagelab.place(x=80, y=250)
+            self.window.bind("<<ImageLoaded>>", self.on_image_loaded)
+            self.display_pokemon_information(pokemon_information)
+        except TypeError:
+            print("Type error.")
 
     def get_pokemon_information(self):
         '''Gets parses pokemon information from pokeapi.'''
