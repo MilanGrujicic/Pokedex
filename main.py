@@ -40,7 +40,7 @@ class Pokedex:
         pokemon_information = self.get_pokemon_information()
         try:
             threading.Thread(target=self.getImageFromURL, args=(pokemon_information[-1], self)).start()
-            self.imagelab = Label(self.window, text="Loading Pokemon data ...", width=25, height=5, bg="black", fg="white")
+            self.display_runtime_message("Loading Pokemon data ...")
             self.imagelab.place(x=80, y=250)
             self.window.bind("<<ImageLoaded>>", self.on_image_loaded)
             self.display_pokemon_information(pokemon_information)
@@ -109,6 +109,9 @@ class Pokedex:
 
         self.pokemon_type = Label(self.information_display, text=list_with_pokemon_information[3].title(), bg="black", fg="white")
         self.pokemon_type.grid(column=1, row=3, pady=5, sticky="w")
+
+    def display_runtime_message(self, message):
+        self.imagelab = Label(self.window, text=f"{message}", width=25, height=5, bg="black", fg="white")
 
 if __name__ == "__main__":
     app = Pokedex()
