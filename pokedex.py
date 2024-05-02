@@ -50,7 +50,7 @@ class Pokedex:
             print("Type error.")
 
     def get_pokemon_information(self):
-        '''Gets parses pokemon information from pokeapi.'''
+        '''Gets parsed pokemon information from pokeapi.'''
         pokemon_information = list()
         pokemon_name = self.user_input.get(1.0, END).strip()
         if not pokemon_name:
