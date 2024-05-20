@@ -8,7 +8,7 @@ A Pokédex is a device which holds information about pokemons.
 
 ## Prerequisites
 - Python 3.10.12;
-- Tkinter library;
+- tkinter library;
 - PIL library;
 - requests library;
 - threading library;
