@@ -1,6 +1,6 @@
 # Pokédex
 ## Description
-A Pokédex is a device which holds information about pokemons.
+A Pokédex is a device which holds information about Pokemons.
 
 ## Features
 
