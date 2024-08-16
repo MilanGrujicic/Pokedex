@@ -6,6 +6,9 @@ from tkinter import *
 
 BACKGROUND_COLOR = "#191919"
 
+def main():
+    pokedex = Pokedex()
+
 class Pokedex:
     def __init__(self):
         self.window = Tk()
