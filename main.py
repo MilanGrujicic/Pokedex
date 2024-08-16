@@ -1,3 +1,3 @@
-from pokedex import Pokedex 
+from pokedex import main 
 
-pokedex = Pokedex()
+main()
