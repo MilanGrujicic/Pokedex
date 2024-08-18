@@ -116,5 +116,5 @@ class Pokedex:
         self.pokemon_type.grid(column=1, row=3, pady=5, sticky="w")
 
     def display_runtime_message(self, message):
-        '''Displays message to user.'''
+        '''Displays message to user while pokemon data loads.'''
         self.imagelab = Label(self.window, text=f"{message}", width=25, height=5, bg="black", fg="white")
