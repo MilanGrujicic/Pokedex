@@ -3,6 +3,7 @@ import threading
 from urllib.request import urlopen
 from PIL import ImageTk
 from tkinter import *
+from tkinter import messagebox
 
 BACKGROUND_COLOR = "#191919"
 
@@ -57,7 +58,7 @@ class Pokedex:
         pokemon_information = list()
         pokemon_name = self.user_input.get(1.0, END).strip()
         if not pokemon_name:
-            print("Please enter a Pokémon name.")
+            messagebox.showinfo(title="Error", message="Please enter a Pokémon name.")
             return None
 
         endpoint = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"  # Construct the correct endpoint.
