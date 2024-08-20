@@ -73,7 +73,7 @@ class Pokedex:
             pokemon_information.append(data["sprites"]["front_default"])
             return pokemon_information
         else:
-            print(f"Error fetching Pokémon data: {response.status_code}")
+            messagebox.showinfo(title="Error", message=f"Error fetching pokemon data: {response.status_code}")
             return None
 
     def getImageFromURL(self, url, controller):
