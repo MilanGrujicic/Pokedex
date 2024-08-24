@@ -69,7 +69,7 @@ class Pokedex:
             pokemon_information.append(data["id"])
             pokemon_information.append(pokemon_name)
             pokemon_information.append(data["types"][0]["type"]["name"])
-            pokemon_information.append(data["abilities"][1]["ability"]["name"])
+            pokemon_information.append(data["abilities"][0]["ability"]["name"])
             pokemon_information.append(data["sprites"]["front_default"])
             return pokemon_information
         else:
