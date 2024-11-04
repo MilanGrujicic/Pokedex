@@ -1,6 +1,7 @@
 # Pokédex
+![Image Alt Text](./Logos/logo_black_background.png)
 ## Description
-A Pokédex is a device which holds information about Pokemons.
+A Pokédex is a device which holds information about Pokémons.
 
 ## Features
 
